@@ -1,0 +1,17 @@
+name: Cron Probe
+
+on:
+  schedule:
+    - cron: "23,38,53 * * * *"
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print cron probe
+        run: |
+          echo "Triggered by: ${{ github.event_name }}"
+          echo "UTC time:"
+          date -u
